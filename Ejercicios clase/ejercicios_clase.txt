@@ -44,3 +44,10 @@ TEMA 1
 		Fuentes:
 			https://es.wikipedia.org/wiki/Node.js
 			http://www.netconsulting.es/blog/nodejs/
+
+
+TEMA 2
+
+  Ejercicio "Buscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad."
+
+  Ejercicio "¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el servidor? "
