@@ -15,6 +15,7 @@ Tras saber como funciona el Rsync, vamos a configurar una conexión SSH que nos 
 Primeramente ejecutamos:
 ``` ssh-keygen -b 4096 -t rsa ```
 para generar las claves necesarias
+
 ![Generación de claves](ssh-keygen.PNG)
 
 Tras esto y para finalizar la configuración, usamos el comando ``` ssh-copy-id maquina1 ``` para copiar las claves en la otra máquina, permitiendo la conexión al otro equipo sin necesidad de contraseña
