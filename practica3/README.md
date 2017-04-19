@@ -9,7 +9,7 @@ Tras acabar la instalación, modificamos el fichero ``` /etc/nginx/conf.d/defaul
 ![Configuración Nginx](./imagenes/configuracionNGINX.png)
 
 Y podemos lanzar ya el servicio con el comando ``` sudo systemctl start nginx ```, si no obtenemos ningún mensaje de error ya estará funcionando todo de forma correcta, pero podemos comprobarlo accediendo al cliente y haciendo peticiones al balanceador o haciendo peticiones desde el propio balanceador a sí mismo como vemos en la imagen:
-![Prueba de funcionamiento del balanceo con Nginx](./imagenes/pruebaNginx.png)
+![Prueba de funcionamiento del balanceo con Nginx](./imagenes/pruebaNGINX.png)
 
 De esta manera ya estará configurado el balanceo con el algoritmo Round-Robin. Podemos cambiar este hecho y hacer que balancee mediante ponderación añadiendo la orden ``` weight ``` con sus respectivos valores a las IP de los servidores web en el fichero de configuración(``` /etc/nginx/conf.d/default.conf ```) como podemos ver a continuación:
 ![Configuración Nginx mediante ponderación](./imagenes/configuracionNGINXconPonderacion.png)
