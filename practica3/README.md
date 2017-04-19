@@ -9,7 +9,7 @@ Tras acabar la instalación, modificamos el fichero ``` /etc/nginx/conf.d/defaul
 ![Configuración Nginx](./imagenes/configuracionNGINX.png)
 
 Y podemos lanzar ya el servicio con el comando ``` sudo systemctl start nginx ```, si no obtenemos ningún mensaje de error ya estará funcionando todo de forma correcta, pero podemos comprobarlo accediendo al cliente y haciendo peticiones al balanceador o haciendo peticiones desde el propio balanceador a sí mismo como vemos en la imagen:
-![Prueba de funcionamiento del balanceo con Nginx](./imagenes/pruebaFuncionamientoNginx.png)
+![Prueba de funcionamiento del balanceo con Nginx](./imagenes/pruebaNginx.png)
 
 De esta manera ya estará configurado el balanceo con el algoritmo Round-Robin. Podemos cambiar este hecho y hacer que balancee mediante ponderación añadiendo la orden ``` weight ``` con sus respectivos valores a las IP de los servidores web en el fichero de configuración(``` /etc/nginx/conf.d/default.conf ```) como podemos ver a continuación:
 ![Configuración Nginx mediante ponderación](./imagenes/configuracionNGINXconPonderacion.png)
@@ -22,13 +22,17 @@ En primer lugar, comprobamos si está el programa instalado en la máquina que f
 - ``` sudo apt-get install haproxy ```
 
 Una vez instalado, accedemos a su archivo de configuración situado en ``` /etc/haproxy/haproxy.cfg ``` e introducimos la siguiente información:
+
 ![Configuración HAProxy 1](./imagenes/configuracionHAPROXY1.png)
+
 ![Configuración HAProxy 2](./imagenes/configuracionHAPROXY2.png)
+
 ![Configuración HAProxy 3](./imagenes/configuracionHAPROXY3.png)
+
 ![Configuración HAProxy 4](./imagenes/configuracionHAPROXY4.png)
 
 Con esta configuración, HAProxy ya está preparado para su trabajo, iniciamos el servicio (``` sudo service haproxy start ```) y podemos probar su funcionamiento como con nginx (cliente externo o llamadas al localhost):
-![Prueba de funcionamiento del balanceo con HAProxy](./imagenes/pruebaFuncionamientoHAPROXY.png)
+![Prueba de funcionamiento del balanceo con HAProxy](./imagenes/pruebaHAPROXY.png)
 
 
 ## Balanceo de carga con Pound (tarea opcional)
@@ -42,7 +46,7 @@ Tras instalarlo, hay que entrar al archivo ``` /etc/pound/pound.cfg ``` y modifi
 Solo falta entrar al fichero ``` /etc/default/pound ``` y activar el servicio Pound poniendo la variable ``` startup=1 ```
 
 Iniciamos el servicio (``` sudo service pound start ```) y podemos probar su funcionamiento:
-![Prueba de funcionamiento del balanceo con Pound](./imagenes/pruebaFuncionamientoPOUND.png)
+![Prueba de funcionamiento del balanceo con Pound](./imagenes/pruebaPOUND.png)
 
 
 ## Probar los balanceadores sometiéndolos a alta carga
