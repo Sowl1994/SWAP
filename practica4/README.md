@@ -42,7 +42,7 @@ Vamos a crear un script para las iptables:
 Con este script se controlará el cortafuegos, pero tiene una pega; hay que inciarlo cada vez que se inicie la máquina.
 
 Para evitar este tedioso proceso, situaremos el script en ``` /etc/rc.local ``` para que se ejecute de manera automática cada vez que se inicie la máquina.
-![Script IPTables en rc.local](./imagenes/scriptIPTablesenRClocal.png)
+![Script IPTables en rc.local](./imagenes/scriptIPTablesRClocal.png)
 
 Reiniciamos la máquina y comprobamos que todo funciona correctamente:
 ![Inicio con iptables gracias a rc.local](./imagenes/comprobacionIPTablesInicio.png)
