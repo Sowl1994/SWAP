@@ -8,19 +8,17 @@ Actualmente la compañía IBM tiene una gama de mainframes (z Systems) que van d
 
 - Cisco Systems Catalyst 6500 Series 
 	![Imagen familia Catalyst 6500](./imagenes/t4/ciscoCatalyst.png)
-
+	
 	Precio en amazon.com: (6513-E) $12,561.64
 	![Especificaciones familia Catalyst 6500](./imagenes/t4/specscisco.png)
 
 - Coyote Point E350si
 	![Imagen Coyote Point E350si](./imagenes/t4/coyote.jpg)
-
 	Precio en amazon.com: $1,899.85
 	![Especificaciones Coyote Point E350si](./imagenes/t4/specscoyote.png)
 
 - F5 Networks BIG-IP 6400
 	![Imagen Coyote Point E350si](./imagenes/t4/f5.png)
-	
 	Precio en eBay.com: $3,750.00 
 	![Especificaciones Coyote Point E350si](./imagenes/t4/specs6400.png)
 	
