@@ -43,7 +43,7 @@ La opción anterior es un método viable, pero depende de que la realice un oper
 
 Para empezar, haremos la configuración del maestro. Para ello vamos a editar el fichero ``` /etc/mysql/mysql.conf.d/mysqld.cnf ```
 - Comentamos el parámetro ``` bind-address ```
-- 
+
 ![Comentamos bind-address](./imagenes/12.png)
 - Indicamos el archivos para almacenar el log de errores:
 ``` log_error = /var/log/mysql/error.log ```
@@ -70,11 +70,20 @@ Volvemos al maestro y realizamos las siguientes sentencias:
 
 ![Secuencias a realizar](./imagenes/17.png) 
 
-Con esto, ya hemos finalizado con el maestro, pasamos al esclavo:
-- Introducimos esta sentencia, cambiando los datos oportunos: 
-``` CHANGE MASTER TO MASTER_HOST='192.168.31.200',MASTER_USER='esclavo', MASTER_PASSWORD='esclavo', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=501, MASTER_PORT=3306; ```
+Por último, introducimos ``` show master status; ```, que nos mostrará la siguiente tabla:
 
-Si no ha dado problemas, volvemos al maestro y desbloqueamos las tablas y en el esclavo podemos ejecutar ``` START SLAVE; ``` y comprobaremos que todo funciona. Si queremos comprobar que todo funciona, podemos verlo tecleando ``` SHOW START SLAVE\G; ``` y si vemos que la variable "“Seconds_Behind_Master" es diferente de NULL es que todo funciona correctamente.
+![Tabla datos maestro](./imagenes/21.png)
+
+Con estos datos ('File' y 'Position'), podemos pasar a configurar el esclavo:
+- Introducimos esta sentencia, cambiando los datos oportunos: 
+``` CHANGE MASTER TO MASTER_HOST='IP.del.maestro',MASTER_USER='esclavo', MASTER_PASSWORD='esclavo', MASTER_LOG_FILE='File', MASTER_LOG_POS=Position, MASTER_PORT=3306; ```
+
+
+Si no ha dado problemas, volvemos al maestro y desbloqueamos las tablas (``` UNLOCK TABLES; ```) y en el esclavo podemos ejecutar ``` START SLAVE; ``` y comprobaremos que todo funciona. Si queremos comprobar que todo ha ido correctamente, podemos verlo tecleando ``` SHOW START SLAVE\G; ``` y si vemos que la variable "“Seconds_Behind_Master" es diferente de NULL es que todo funciona.
 
 ![Todo funciona correctamente](./imagenes/20.png)
+
+Por último realizamos una inserción de prueba desde el maestro para comprobar que todo va sobre ruedas:
+
+![Prueba definitiva](./imagenes/22.png)
 
